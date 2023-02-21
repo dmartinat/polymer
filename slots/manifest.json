@@ -1,0 +1,7 @@
+{
+  "name": "slots",
+  "short_name": "slots",
+  "description": "Polymer slot example",
+  "start_url": "/",
+  "display": "standalone"
+}
