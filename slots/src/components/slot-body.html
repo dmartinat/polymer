@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./element-carrousel.html">
 
 <dom-module id="slot-body">
   <template>
@@ -7,9 +8,8 @@
         display: block;
       }
     </style>
-    <h3>Hello [[prop1]]!</h3>
-    <span> body element span ©</span>
-    <slot></slot>
+    <h3>body [[prop1]]!</h3>
+    <element-carrousel slides="{{slides}}"></element-carrousel>
   </template>
 
   <script>
@@ -24,6 +24,12 @@
           prop1: {
             type: String,
             value: 'slot body element'
+          },
+          slides:{
+            type: Array,
+            value: function() {
+              return [{id:1,info:'Soy el ID 1'},{id:2,info:'Soy el ID 2'},{id:3,info:'Soy el ID 3'}]
+            }
           }
         };
       }

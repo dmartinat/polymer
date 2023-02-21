@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="element-carrousel">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>CARRUSEL [[prop1]]!</h2>
+    <span> carrousel [[slides]] </span>
+
+ 
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class ElementCarrousel extends Polymer.Element {
+      static get is() { return 'element-carrousel'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'carrousel element'
+          }
+        };
+      }
+      connectedCallback(){
+        super.connectedCallback();
+        console.log('connected',this.slides);
+      }
+    }
+    window.customElements.define(ElementCarrousel.is, ElementCarrousel);
+  </script>
+</dom-module>
