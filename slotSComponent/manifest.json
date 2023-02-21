@@ -1,0 +1,7 @@
+{
+  "name": "slotSComponent",
+  "short_name": "slotSComponent",
+  "description": "Component with three slots",
+  "start_url": "/",
+  "display": "standalone"
+}
