@@ -1,21 +1,18 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
-<dom-module id="slot-component">
+<dom-module id="slotted-component">
   <template>
     <style>
       :host {
-        display: flex;
-        background:rgba(20,20,20,0.2);
+        display: block;
       }
     </style>
-    <section id="footer">
       <h5>Hello [[prop1]]!</h5>
       <slot name="head"></slot>
       <slot name="body">
         <slot name="slides"></slot>
       </slot>
       <slot name="footer"></slot>
-    </section>
   </template>
 
   <script>
@@ -24,17 +21,17 @@
      * @polymer
      */
     class SlotedComponent extends Polymer.Element {
-      static get is() { return 'slot-component'; }
+      static get is() { return 'slotted-component'; }
       static get properties() {
         return {
           prop1: {
             type: String,
-            value: 'sloted component'
+            value: 'slotted component'
           }
         };
       }
     }
 
-    window.customElements.define(SlotedComponent.is, SlotedComponent);
+    window.customElements.define(SlottedComponent.is, SlottedComponent);
   </script>
 </dom-module>
