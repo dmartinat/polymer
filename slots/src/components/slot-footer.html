@@ -4,12 +4,15 @@
   <template>
     <style>
       :host {
-        display: block;
+        display: flex;
+        background:rgba(20,20,20,0.2);
       }
     </style>
-    <h5>Hello [[prop1]]!</h5>
-    <span> footer element span ©</span>
-    <slot></slot>
+    <section id="footer">
+      <h5>Hello [[prop1]]!</h5>
+      <span> footer element span ©</span>
+      <slot></slot>
+    </section>
   </template>
 
   <script>

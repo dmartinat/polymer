@@ -4,16 +4,28 @@
   <template>
     <style>
       :host {
-        display: block;
+        display: flex;
+      }
+      :host > div{
+        display: flex;
+        flex-direction: column;
+        padding:0 2em;
       }
     </style>
-    <h2>CARRUSEL [[prop1]]!</h2>
-    <span> carrousel [[slides]] </span>
-
  
   </template>
 
   <script>
+
+   const createSlide =  (info={}) => {
+      let div = document.createElement('div');
+       div.innerHTML = `<h4> ${info.info}</h4>`;
+      let elem = document.createElement('img');
+      elem.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
+      elem.setAttribute('width','200px');
+      div.appendChild(elem);
+      return div;
+    }
     /**
      * @customElement
      * @polymer
@@ -30,9 +42,20 @@
       }
       connectedCallback(){
         super.connectedCallback();
-        console.log('connected',this.slides);
+        this.slides.forEach(
+            slide => {
+              let elem = createSlide(slide)
+              elem.onclick = () => {this.dispatchEvent( new CustomEvent("bubbleUp", {
+              bubbles: true,
+              detail: slide,
+              composed:true
+            })); }
+            this.shadowRoot.appendChild(elem)
+          }
+        )
       }
     }
+
     window.customElements.define(ElementCarrousel.is, ElementCarrousel);
   </script>
 </dom-module>

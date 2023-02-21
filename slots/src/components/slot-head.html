@@ -5,15 +5,18 @@
     <style>
       :host {
         display: block;
+        background:rgba(20,20,20,0.2)
       }
       .defaultText {
         color:red
       }
     </style>
-    <h2>[[prop1]]</h2>
-    <slot><h1 class="defaultText">header default text if no image or text</h1></slot>
+    <section id="header">
+      <h2>[[prop1]]</h2>
+      <slot><h1 class="defaultText">header default text if no image or text</h1></slot>
       <slot name="picture"></slot>
       <slot name="text"></slot>
+    </section>
   </template>
 
   <script>
@@ -31,12 +34,7 @@
           }
         };
       }
-      ready(){
-        super.ready();
-          console.log("head ready",this.shadowRoot)
-        }
     }
-
     window.customElements.define(SlotHead.is, SlotHead);
   </script>
 </dom-module>
