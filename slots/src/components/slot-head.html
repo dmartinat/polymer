@@ -6,15 +6,14 @@
       :host {
         display: block;
       }
+      .defaultText {
+        color:red
+      }
     </style>
     <h2>[[prop1]]</h2>
-    <slot> 
-      
-      <img name="picture" src="./src/assets/octogon.webp">
-      header default text if no image or text
-    
-    </slot>
-    
+    <slot><h1 class="defaultText">header default text if no image or text</h1></slot>
+      <slot name="picture"></slot>
+      <slot name="text"></slot>
   </template>
 
   <script>
@@ -32,6 +31,10 @@
           }
         };
       }
+      ready(){
+        super.ready();
+          console.log("head ready",this.shadowRoot)
+        }
     }
 
     window.customElements.define(SlotHead.is, SlotHead);

@@ -11,8 +11,8 @@
     </style>
     <h2>Hello [[prop1]]!</h2>
     <slot-head>
-      <img src="./src/assets/jabcode.gif">
-
+      <img slot="picture" src="./src/assets/jabcode.gif">
+      <span slot="text"> Text example Introduced in main app to display in head slot</span>
     </slot-head>
     <slot-footer> footer text inside slot</slot-footer>
 
@@ -33,6 +33,11 @@
           }
         };
       }
+
+      ready(){
+        super.ready();
+          console.log("app ready",this.shadowRoot)
+        }
     }
 
     window.customElements.define(SlotsApp.is, SlotsApp);
