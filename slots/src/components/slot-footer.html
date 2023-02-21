@@ -1,14 +1,14 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
-<dom-module id="slot-element">
+<dom-module id="slot-footer">
   <template>
     <style>
       :host {
         display: block;
       }
     </style>
-    <h3>[[footerTitle]]</h2>
-    <span> foot c</span>
+    <h5>Hello [[prop1]]!</h5>
+    <span> footer element span ©</span>
   </template>
 
   <script>
@@ -17,17 +17,17 @@
      * @polymer
      */
     class SlotFooter extends Polymer.Element {
-      static get is() { return 'slot-element'; }
+      static get is() { return 'slot-footer'; }
       static get properties() {
         return {
-          footerTitle: {
+          prop1: {
             type: String,
-            value: 'footer element'
+            value: 'slot footer element'
           }
-        }
         };
-
+      }
     }
+
     window.customElements.define(SlotFooter.is, SlotFooter);
   </script>
 </dom-module>
