@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../components/slot-footer.html">
+<link rel="import" href="../components/slot-head.html">
 
 <dom-module id="slots-app">
   <template>
@@ -9,7 +10,12 @@
       }
     </style>
     <h2>Hello [[prop1]]!</h2>
+    <slot-head>
+      <img src="./src/assets/jabcode.gif">
+
+    </slot-head>
     <slot-footer> footer text inside slot</slot-footer>
+
   </template>
 
   <script>
