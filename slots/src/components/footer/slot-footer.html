@@ -1,14 +1,14 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../components/slot-footer.html">
 
-<dom-module id="slots-app">
+<dom-module id="slot-element">
   <template>
     <style>
       :host {
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <h3>[[footerTitle]]</h2>
+    <span> foot c</span>
   </template>
 
   <script>
@@ -16,18 +16,18 @@
      * @customElement
      * @polymer
      */
-    class SlotsApp extends Polymer.Element {
-      static get is() { return 'slots-app'; }
+    class SlotFooter extends Polymer.Element {
+      static get is() { return 'slot-element'; }
       static get properties() {
         return {
-          prop1: {
+          footerTitle: {
             type: String,
-            value: 'slots-app'
+            value: 'footer element'
           }
+        }
         };
-      }
-    }
 
-    window.customElements.define(SlotsApp.is, SlotsApp);
+    }
+    window.customElements.define(SlotFooter.is, SlotFooter);
   </script>
 </dom-module>

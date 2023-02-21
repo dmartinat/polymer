@@ -1,0 +1,56 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="component-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>[[enunciado]]</h2>
+    <button on-click="click">EVENT</button>
+    <input id="campo" type="text" value="{{ valor::input }}" />
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class ComponentElement extends Polymer.Element {
+     constructor()
+      {
+      super()
+        this.event = new CustomEvent("bubbleUp", {
+          bubbles: true,
+          detail: {value : () => this.$.campo.value} ,
+        });
+        
+      }
+      static get is() { return 'component-element'; }
+      static get properties() {
+        return {
+          enunciado: {
+            type: String,
+            value: 'elemento'
+          },
+          valor:{
+            type:String,
+            value:'321',
+            observer:'_observable',
+            notify:true,
+          }
+        }
+        };
+
+        _observable(oldValor,newValor){
+          let evento = new CustomEvent("bubbleUp", {
+            bubbles: true,
+            detail: this.valor 
+          });
+          dispatchEvent(evento);
+        }
+    }
+    window.customElements.define(ComponentElement.is, ComponentElement);
+  </script>
+</dom-module>
