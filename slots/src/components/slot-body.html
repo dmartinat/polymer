@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="slot-body">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h3>Hello [[prop1]]!</h3>
+    <span> body element span ©</span>
+    <slot></slot>
+  </template>
+
+  <script>
+    /**
+     * @SlotBody
+     * @polymer
+     */
+    class SlotBody extends Polymer.Element {
+      static get is() { return 'slot-body'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'slot body element'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(SlotBody.is, SlotBody);
+  </script>
+</dom-module>
