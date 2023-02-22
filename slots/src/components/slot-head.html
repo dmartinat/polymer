@@ -13,10 +13,11 @@
     </style>
     <section id="header">
       <h2>[[prop1]]</h2>
-      <slot><h1 class="defaultText">header default text if no image or text</h1></slot>
-      <slot name="picture"></slot>
-      <slot name="text"></slot>
-    </section>
+      <slot>
+        <slot name="picture"></slot>
+        <slot name="text"></slot>
+        text if no image or text
+      </slot>  
   </template>
 
   <script>

@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
-<dom-module id="slotSComponent-app">
+<dom-module id="slottedcomponent-app">
   <template>
     <style>
       :host {
@@ -15,18 +15,18 @@
      * @customElement
      * @polymer
      */
-    class SlotSComponentApp extends Polymer.Element {
-      static get is() { return 'slotSComponent-app'; }
+    class SlottedcomponentApp extends Polymer.Element {
+      static get is() { return 'slottedcomponent-app'; }
       static get properties() {
         return {
           prop1: {
             type: String,
-            value: 'slotSComponent-app'
+            value: 'slottedcomponent-app'
           }
         };
       }
     }
 
-    window.customElements.define(SlotSComponentApp.is, SlotSComponentApp);
+    window.customElements.define(SlottedcomponentApp.is, SlottedcomponentApp);
   </script>
 </dom-module>
