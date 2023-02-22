@@ -13,8 +13,7 @@
         <slot name="image"></slot>
         <slot name="text"></slot>
       </slot> 
-      <slot name="body">
-        <slot name="slides"></slot>
+      <slot name="bodyer">
       </slot>
       <slot name="footer"><p>FOOT DEFAULT</p></slot>
   </template>
@@ -31,11 +30,39 @@
           prop1: {
             type: String,
             value: 'slotted component'
-          }
+          },
         };
+      }
+      connectedCallback(){
+        super.connectedCallback()
+        //console.log("this",this.shadowRoot.querySelector('slotted-component').querySelector('[slot="bodyer"]'))
+        //remove printed object
+       // this.querySelector('[slot="bodyer"]').innerHTML = '';
+        console.log("thhis slides",this.slides)
+        this.slides.forEach(
+            slide => {
+              let elem = createSlide(slide)
+              elem.onclick = () => {this.dispatchEvent( new CustomEvent("bubbleUp", {
+              bubbles: true,
+              detail: slide,
+              composed:true
+            })); }
+            this.querySelector('[slot="bodyer"]').appendChild(elem)
+          }
+        )
       }
     }
 
     window.customElements.define(SlottedComponent.is, SlottedComponent);
+
+    const createSlide =  (info={}) => {
+      let div = document.createElement('div');
+       div.innerHTML = `<h4> ${info.info}</h4>`;
+      let elem = document.createElement('img');
+      elem.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
+      elem.setAttribute('width','200px');
+      div.appendChild(elem);
+      return div;
+    } 
   </script>
 </dom-module>
