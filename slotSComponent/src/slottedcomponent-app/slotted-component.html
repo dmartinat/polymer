@@ -9,9 +9,10 @@
 
     </style>
       <h5>Hello [[prop1]]!</h5>
-      <slot name="header"  id="headSlot">
+      <slot name="header">
         <slot name="image"></slot>
         <slot name="text"></slot>
+        <p> Default text </p>
       </slot> 
       <slot name="bodyer">
       </slot>
@@ -35,21 +36,6 @@
       }
       connectedCallback(){
         super.connectedCallback()
-        //console.log("this",this.shadowRoot.querySelector('slotted-component').querySelector('[slot="bodyer"]'))
-        //remove printed object
-       // this.querySelector('[slot="bodyer"]').innerHTML = '';
-        console.log("thhis slides",this.slides)
-        this.slides.forEach(
-            slide => {
-              let elem = createSlide(slide)
-              elem.onclick = () => {this.dispatchEvent( new CustomEvent("bubbleUp", {
-              bubbles: true,
-              detail: slide,
-              composed:true
-            })); }
-            this.querySelector('[slot="bodyer"]').appendChild(elem)
-          }
-        )
       }
     }
 

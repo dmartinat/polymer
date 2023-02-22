@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="./slotted-component.html">
+<link rel="import" href="./nestedslot-component.html">
 <dom-module id="slottedcomponent-app">
   <template>
     <style>
@@ -16,9 +17,8 @@
         padding:2em 2em;
       }
     </style>
-    <h2>Slot Component Exercise [[prop1]]!</h2>
-
-    <slotted-component  slides="{{slides}}">
+    <h2>Slot Component Exercise [[prop1]]!</h2> 
+    <slotted-component  >
       <div slot="header"></div>
       <div slot="bodyer"> 
          <div><h4> [[prop2]] </h4></div>
