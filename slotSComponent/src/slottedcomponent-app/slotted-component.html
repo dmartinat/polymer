@@ -1,17 +1,22 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
 <dom-module id="slotted-component">
-  <template id="my-tpl">
+  <template>
     <style>
       :host {
         display: block;
       }
+
     </style>
       <h5>Hello [[prop1]]!</h5>
-
-      <slot name="head"><span>Default text header if no text or image.</span> </slot>
-      <slot name="slides"></slot>
-      <slot name="footer"></slot>
+      <slot name="header"  id="headSlot">
+        <slot name="image"></slot>
+        <slot name="text"></slot>
+      </slot> 
+      <slot name="body">
+        <slot name="slides"></slot>
+      </slot>
+      <slot name="footer"><p>FOOT DEFAULT</p></slot>
   </template>
 
   <script>
