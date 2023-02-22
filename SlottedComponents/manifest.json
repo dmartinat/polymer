@@ -1,0 +1,7 @@
+{
+  "name": "SlottedComponents",
+  "short_name": "SlottedComponents",
+  "description": "Example of slots and components",
+  "start_url": "/",
+  "display": "standalone"
+}
