@@ -1,20 +1,17 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 
 <dom-module id="slotted-component">
-  <template>
+  <template id="my-tpl">
     <style>
       :host {
         display: block;
       }
     </style>
       <h5>Hello [[prop1]]!</h5>
-      <slot name="head"></slot>
-      <slot name="body">
-        <slot name="slides"></slot>
-      </slot>
-      <slot name="footer">
-        <span> Footer text copy </span>
-      </slot>
+
+      <slot name="heada">Default text header if no text or image. </slot>
+      <slot name="slides"></slot>
+      <slot name="footer"></slot>
   </template>
 
   <script>
@@ -22,7 +19,7 @@
      * @customElement
      * @polymer
      */
-    class SlotedComponent extends Polymer.Element {
+    class SlottedComponent extends Polymer.Element {
       static get is() { return 'slotted-component'; }
       static get properties() {
         return {
