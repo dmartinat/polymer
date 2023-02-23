@@ -6,6 +6,8 @@
       }
     </style>
     <h3>Templates [[prop1]]!</h3>
+
+    <h4>as[[prop2]]</h4>
     <slot name="head">
       <slot name="image"></slot>
       <slot name="text"></slot>
@@ -32,6 +34,10 @@
           prop1: {
             type: String,
             value: 'template-component'
+          },
+          prop2: {
+            type: String,
+            value: 'bbb'
           }
         };
       }

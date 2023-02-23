@@ -8,13 +8,9 @@
     </style>
     <h3>Slides [[prop1]]!</h3>
     <template is="dom-repeat"  items="[[slides]]" as="slide">
-      <p>AA [[slide.id]]</p>
-      <span id="[[slide.id]]">[[slide.info]]</span>
+      <p>[[slide.id]]</p>
+      <span class="slide" on-click="show">[[slide.info]]</span>
     </template>
-
-    <div id="slides">
-
-    </div>
   </template>
 
   <script>
@@ -38,17 +34,20 @@
       }
       connectedCallback(){
         super.connectedCallback()
-        this.slides.forEach(
-              slide => {
-                let elem = createSlide(slide)
-                elem.onclick = () => {this.dispatchEvent( new CustomEvent("bubbleUp", {
-                bubbles: true,
-                detail: slide,
-                composed:true
-              })); }
-              this.querySelector('slides').appendChild(elem)
-            })
-        }
+        console.log(this.model,this.shadowRoot.querySelector('.slide'))
+      }
+
+      show(e)
+      {
+        console.log("this",this,"e",e)
+        let detail = e.model.__data.slide
+        console.log("detail",detail)
+         window.dispatchEvent( new CustomEvent("bubbleUp", {
+          bubbles: true,
+          detail: detail,
+          composed:true
+        })); 
+      }
     }
 
     window.customElements.define(SlidesComponent.is, SlidesComponent);
