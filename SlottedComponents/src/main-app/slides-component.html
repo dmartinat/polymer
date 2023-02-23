@@ -7,7 +7,7 @@
       }
     </style>
     <h3>Slides [[prop1]]!</h3>
-    <template is="dom-repeat"  items="[[slides]]" as="slide">
+    <template is="dom-repeat" items="[[slides]]" as="slide">
       <span class="slide" on-click="show">[[slide.info]]</span>
     </template>
   </template>
@@ -28,16 +28,20 @@
           prop1: {
             type: String,
             value: 'slides-component'
+          },
+          items: {
+            type: Array,
+            value:()=>[]
           }
         };
       }
 
       show(e)
       {
-        let detail = e.model.__data.slide
-         document.dispatchEvent( new CustomEvent("bubbleUp", {
+        let detail = e.model.slide
+         this.dispatchEvent( new CustomEvent("bubbleUp", {
           bubbles: true,
-          detail: detail,
+          detail,
           composed:true
         })); 
       }
