@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="./template-component.html">
+<link rel="import" href="./slides-component.html">
 
 <dom-module id="main-app">
   <template>
@@ -15,18 +16,9 @@
         <img slot="image" src="[[url]]" />
       </div>
       <div slot="body">
-        <slide-component slot="slide"></slide-component>
+        <slides-component slot="slide" slides="[[slides]]"></slides-component>
       </div>
     </template-component>
-  </template>
-  <div slot="head">
-    <h3 slot="text">[[textHead]]</h3>
-    <img slot="image" src="[[url]]" />
-  </div>
-  <div slot="body">
-    <slide-component slot="slide"></slide-component>
-  </div>
-</template-component>
 </template>
 
 
@@ -52,8 +44,23 @@
           textHead:{
             type: String,
             value: 'HEADER TITLE'
+          },
+          slides:{
+            type: Array,
+            value: function() {
+              return [{id:1,info:'Soy el ID 1'},{id:2,info:'Soy el ID 2'},{id:3,info:'Soy el ID 3'}]
+            }
           }
         };
+      }
+      connectedCallback(){
+        this.bubbleAction = ({detail}) => this.prop2 = `El ID ${detail.id}  ha sido clicado`;
+        super.connectedCallback();
+        this.addEventListener("bubbleUp",this.bubbleAction)
+      }
+      disconnectedCallback(){
+        super.disconnectedCallback();
+        this.removeEventListener("bubbleUp",this.bubbleAction)
       }
     }
 

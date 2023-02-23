@@ -1,0 +1,56 @@
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
+<dom-module id="slides-component">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h3>Slides [[prop1]]!</h3>
+    <template is="dom-repeat"  items="[[slides]]" as="slide">
+      <p>AA [[slide.id]]</p>
+      <span id="[[slide.id]]">[[slide.info]]</span>
+    </template>
+
+    <div id="slides">
+
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `slides-component`
+     * Template with head, body and footer slots
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class SlidesComponent extends Polymer.Element {
+      static get is() { return 'slides-component'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'slides-component'
+          }
+        };
+      }
+      connectedCallback(){
+        super.connectedCallback()
+        this.slides.forEach(
+              slide => {
+                let elem = createSlide(slide)
+                elem.onclick = () => {this.dispatchEvent( new CustomEvent("bubbleUp", {
+                bubbles: true,
+                detail: slide,
+                composed:true
+              })); }
+              this.querySelector('slides').appendChild(elem)
+            })
+        }
+    }
+
+    window.customElements.define(SlidesComponent.is, SlidesComponent);
+  </script>
+</dom-module>

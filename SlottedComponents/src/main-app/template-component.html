@@ -1,5 +1,3 @@
-<link rel="import" href="../polymer/polymer-element.html">
-
 <dom-module id="template-component">
   <template>
     <style>
@@ -36,6 +34,15 @@
             value: 'template-component'
           }
         };
+      }
+      connectedCallback(){
+        this.bubbleAction = ({detail}) => this.prop2 = `El ID ${detail.id}  ha sido clicado`;
+        super.connectedCallback();
+        this.addEventListener("bubbleUp",this.bubbleAction)
+      }
+      disconnectedCallback(){
+        super.disconnectedCallback();
+        this.removeEventListener("bubbleUp",this.bubbleAction)
       }
     }
 
