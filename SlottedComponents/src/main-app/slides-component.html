@@ -8,7 +8,6 @@
     </style>
     <h3>Slides [[prop1]]!</h3>
     <template is="dom-repeat"  items="[[slides]]" as="slide">
-      <p>[[slide.id]]</p>
       <span class="slide" on-click="show">[[slide.info]]</span>
     </template>
   </template>
@@ -32,17 +31,11 @@
           }
         };
       }
-      connectedCallback(){
-        super.connectedCallback()
-        console.log(this.model,this.shadowRoot.querySelector('.slide'))
-      }
 
       show(e)
       {
-        console.log("this",this,"e",e)
         let detail = e.model.__data.slide
-        console.log("detail",detail)
-         window.dispatchEvent( new CustomEvent("bubbleUp", {
+         document.dispatchEvent( new CustomEvent("bubbleUp", {
           bubbles: true,
           detail: detail,
           composed:true

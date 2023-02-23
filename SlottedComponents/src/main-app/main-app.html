@@ -56,11 +56,11 @@
       connectedCallback(){
         this.bubbleAction = ({detail}) => this.prop2 = `El ID ${detail.id}  ha sido clicado`;
         super.connectedCallback();
-        this.addEventListener("bubbleUp",this.bubbleAction)
+        document.addEventListener("bubbleUp",this.bubbleAction)
       }
       disconnectedCallback(){
         super.disconnectedCallback();
-        this.removeEventListener("bubbleUp",this.bubbleAction)
+        document.removeEventListener("bubbleUp",this.bubbleAction)
       }
     }
 
