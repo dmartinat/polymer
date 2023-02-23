@@ -11,7 +11,12 @@ Crea un componente que tenga slots dedicados para cada sección.
     -   Slide (otro componente)
 -   Footer
 
-El slot **header** tendrá anidados dos slot el cuál podrá recibir una imagen, en caso de recibirla tendrá que mostrarla y también podrá recibir un texto, en caso de recibirlo también lo enseñará. En caso de no recibir nada, enseñará un texto predeterminado. La lógica de este proceso la realizará el componente padre.
+El slot **header** tendrá anidados dos slot el cuál podrá recibir una imagen, en caso de recibirla tendrá que mostrarla y también podrá recibir un texto, en caso de recibirlo también lo enseñará. En caso de no recibir nada, mostrara las propiedades por defecto. La lógica de este proceso la realizará el componente padre.
+
+El slot **header** tiene andidados dos slots: Un slot de tipo imagen y un slot para un texto.
+El texto que se sera declarado como una propiedad de componente. con un valor por defecto.
+La ruta de la imagen sera declarada como otra propiedad del componente con una ruta valida de una imagen por defecto.
+
 
 El slot **body** tendrá a su vez otro slot hijo que será un **slide** (carrousel),
 

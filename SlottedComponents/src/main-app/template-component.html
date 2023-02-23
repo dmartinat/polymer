@@ -8,6 +8,14 @@
       }
     </style>
     <h3>Templates [[prop1]]!</h3>
+    <slot name="head">
+      <slot name="image"></slot>
+      <slot name="text"></slot>
+    </slot>
+    <slot name="body">
+      <slot name="slide"></slot>
+    </slot>
+    <slot name="footer"></slot>
   </template>
 
   <script>

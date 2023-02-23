@@ -9,8 +9,27 @@
       }
     </style>
     <h2>Hello [[prop1]]!</h2>
-    <template-component></template-component>
+    <template-component>
+      <div slot="head">
+        <h3 slot="text">[[textHead]]</h3>
+        <img slot="image" src="[[url]]" />
+      </div>
+      <div slot="body">
+        <slide-component slot="slide"></slide-component>
+      </div>
+    </template-component>
   </template>
+  <div slot="head">
+    <h3 slot="text">[[textHead]]</h3>
+    <img slot="image" src="[[url]]" />
+  </div>
+  <div slot="body">
+    <slide-component slot="slide"></slide-component>
+  </div>
+</template-component>
+</template>
+
+
 
 
   <script>
@@ -25,6 +44,14 @@
           prop1: {
             type: String,
             value: 'main-app'
+          },
+          url:{
+            type: String,
+            value: './src/assets/img/octogon.webp'
+          },
+          textHead:{
+            type: String,
+            value: 'HEADER TITLE'
           }
         };
       }
