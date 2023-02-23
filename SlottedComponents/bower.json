@@ -1,6 +1,6 @@
 {
-  "name": "SlottedComponents",
-  "description": "Example of slots and components",
+  "name": "SlottedComponent",
+  "description": "Slotted component app exercise.",
   "main": "index.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0"

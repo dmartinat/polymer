@@ -1,7 +1,7 @@
 {
-  "name": "SlottedComponents",
-  "short_name": "SlottedComponents",
-  "description": "Example of slots and components",
+  "name": "SlottedComponent",
+  "short_name": "SlottedComponent",
+  "description": "Slotted component app exercise.",
   "start_url": "/",
   "display": "standalone"
 }

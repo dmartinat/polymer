@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="template-component">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `template-component`
+     * Template with head, body and footer slots
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class TemplateComponent extends Polymer.Element {
+      static get is() { return 'template-component'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'template-component'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(TemplateComponent.is, TemplateComponent);
+  </script>
+</dom-module>
