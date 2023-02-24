@@ -4,66 +4,57 @@
 
 <dom-module id="main-app">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]!</h2>
     <template-component>
       <div slot="head">
-        <h3 slot="text">[[textHead]]</h3>
         <img slot="image" src="[[url]]" />
+        <h3 slot="text">[[textHead]]</h3>
       </div>
       <div slot="body">
+        <h3> [[prop2]]</h3>
         <slides-component slot="slide" slides="[[slides]]"></slides-component>
       </div>
     </template-component>
 </template>
-
-
-
-
-  <script>
-    /**
-     * @customElement
-     * @polymer
-     */
-    class MainApp extends Polymer.Element {
-      static get is() { return 'main-app'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'main-app'
-          },
-          url:{
-            type: String,
-            value: './src/assets/img/octogon.webp'
-          },
-          textHead:{
-            type: String,
-            value: 'HEADER TITLE'
-          },
-          slides:{
-            type: Array,
-            value: function() {
-              return [{id:1,info:'Soy el ID 1'},{id:2,info:'Soy el ID 2'},{id:3,info:'Soy el ID 3'}]
-            }
+<script>
+  /**
+   * @customElement
+   * @polymer
+   */
+  class MainApp extends Polymer.Element {
+    static get is() { return 'main-app'; }
+    static get properties() {
+      return {
+        prop1: {
+          type: String,
+          value: 'main-app'
+        },
+        url:{
+          type: String,
+          value: './src/assets/img/logo.svg'
+        },
+        textHead:{
+          type: String,
+          value: 'HEADER TITLE'
+        },
+        slides:{
+          type: Array,
+          value: function() {
+            return [{id:1,info:'Soy el ID 1'},{id:2,info:'Soy el ID 2'},{id:3,info:'Soy el ID 3'}]
           }
-        };
-      }
-      connectedCallback(){
-        this.bubbleAction = ({detail}) => this.prop2 = `El ID ${detail.id}  ha sido clicado`;
-        super.connectedCallback();
-        document.addEventListener("bubbleUp",this.bubbleAction)
-      }
-      disconnectedCallback(){
-        super.disconnectedCallback();
-        document.removeEventListener("bubbleUp",this.bubbleAction)
-      }
+        }
+      };
     }
+    connectedCallback(){
+      this.bubbleAction = ({detail}) => this.prop2 = `El ID ${detail.id}  ha sido clicado`;
+      super.connectedCallback();
+      document.addEventListener("bubbleUp",this.bubbleAction)
+    }
+    disconnectedCallback(){
+      super.disconnectedCallback();
+      document.removeEventListener("bubbleUp",this.bubbleAction)
+    }
+  }
 
-    window.customElements.define(MainApp.is, MainApp);
-  </script>
+  window.customElements.define(MainApp.is, MainApp);
+</script>
 </dom-module>
