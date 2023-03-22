@@ -1,3 +1,6 @@
+Author: David Martin Boyero
+Date: 22 / 03 / 23
+
 # SlottedComponents
 
 ## Example of slots and components
